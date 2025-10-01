@@ -1,0 +1,252 @@
+/* Layout wrapper */
+.layout {
+  display: flex;
+  height: 100vh;         /* Full viewport height */
+  overflow: hidden;      /* Prevent outer scroll */
+}
+
+/* Sidebar fixed */
+.sidebar {
+  width: 220px;
+  background: #f4f4f4;
+  padding: 15px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: fixed;       /* Keep it fixed */
+  top: 0;
+  left: 0;
+  overflow-y: auto;      /* Scroll inside sidebar if needed */
+  z-index: 1000;
+}
+
+.sidebar-footer {
+  margin-top: auto;
+}
+
+.sidebar-list {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar-list li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.sidebar-list li:hover {
+  background: #ddd;
+}
+
+.sidebar-link {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.sidebar-link:hover {
+  background-color: #ddd;
+}
+
+/* Main content scrolls */
+.main-content {
+  flex: 1;
+  margin-left: 220px;    /* Push beside sidebar */
+  padding: 20px;
+  height: 100vh;
+  overflow-y: auto;      /* Scroll only content */
+}
+
+/* Hamburger button */
+.hamburger {
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+/* Close button inside sidebar */
+.close-btn {
+  display: none;
+  font-size: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  align-self: flex-end;
+  margin-bottom: 10px;
+}
+
+/* Mobile view */
+@media (max-width: 768px) {
+  .layout {
+    flex-direction: row;
+  }
+
+  .hamburger {
+    display: block;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 1101;
+  }
+
+  .sidebar {
+    left: -220px;
+    transition: left 0.3s ease;
+  }
+
+  .sidebar.open {
+    left: 0;
+  }
+
+  .close-btn {
+    display: block;
+  }
+
+  .main-content {
+    margin-left: 0;
+    padding-top: 60px; /* Space for hamburger */
+  }
+}
+
+
+/*product*/
+.product-form {
+  max-width: 1000px; /* limit width */
+  margin: auto; /* center horizontally with space from top */
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.product-form .form-group {
+  margin-bottom: 1rem;
+}
+
+.product-form .form-control {
+  font-size: 0.9rem;
+  padding: 8px;
+}
+.Product-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/*login */
+.login-form {
+  max-width: 400px;
+  margin: 100px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/*dashboard*/
+#dashboard-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+#dashboard-row {
+  padding-top: 10px;
+}
+
+/*dsahboard skeleton loading*/
+
+.skeleton {
+  background: linear-gradient(90deg, #e0e0e0 25%, #f5f5f5 50%, #e0e0e0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+
+.skeleton-img {
+  width: 100%;
+  height: 180px;
+}
+
+.skeleton-text {
+  height: 15px;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+/*skeleton for order*/
+.order-skeleton {
+  background: linear-gradient(90deg, #d9d9d9 25%, #f0f0f0 50%, #d9d9d9 75%);
+  background-size: 200% 100%;
+  animation: orderShimmer 1.5s infinite;
+  border-radius: 4px;
+}
+
+.order-skeleton-text {
+  height: 14px;
+}
+
+@keyframes orderShimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/*skeleton for purchase*/
+.purchase-skeleton {
+  background: linear-gradient(90deg, #dcdcdc 25%, #f0f0f0 50%, #dcdcdc 75%);
+  background-size: 200% 100%;
+  animation: purchaseShimmer 1.5s infinite;
+  border-radius: 4px;
+}
+
+.purchase-skeleton-text {
+  height: 14px;
+}
+
+@keyframes purchaseShimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/*dashboard btn*/
+.btn-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.search_div {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+
+/*order details last*/
+#ordersdetails_row{
+  margin: 25px;
+}
+#ordersdetails_col{
+  padding: 10px;
+}
+
+/*layout css*/
