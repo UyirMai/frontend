@@ -19,7 +19,7 @@ function Product() {
   const fetchProducts = async () => {
     setLoading(true);
     try {
-      const res = await axios.get("http://localhost:3000/loggedin/products", {
+      const res = await axios.get("https://backend-1-qyp7.onrender.com/loggedin/products", {
         headers: { Authorization: token },
       });
       const data = res.data;
@@ -41,7 +41,7 @@ function Product() {
   const handleRemoving = async (id) => {
     if (!confirm("Delete this product?")) return;
     try {
-      await axios.delete(`http://localhost:3000/loggedin/product/${id}`, {
+      await axios.delete(`https://backend-1-qyp7.onrender.com/loggedin/product/${id}`, {
         headers: { Authorization: token },
       });
       fetchProducts();
@@ -53,7 +53,7 @@ function Product() {
   const handleEdit = async (id) => {
     try {
       const res = await axios.get(
-        `http://localhost:3000/loggedin/products/${id}`,
+        `https://backend-1-qyp7.onrender.com/loggedin/products/${id}`,
         { headers: { Authorization: token } }
       );
       const p = res.data || {};
@@ -350,7 +350,7 @@ function AddEditProductModal({
     try {
       if (mode === "add") {
         await axios.post(
-          "http://localhost:3000/loggedin/addingproduct",
+          "https://backend-1-qyp7.onrender.com/loggedin/addingproduct",
           payload,
           {
             headers: { Authorization: token },
@@ -358,7 +358,7 @@ function AddEditProductModal({
         );
       } else {
         await axios.put(
-          `http://localhost:3000/loggedin/products/${initialData._id}`,
+          `https://backend-1-qyp7.onrender.com/loggedin/products/${initialData._id}`,
           { editedProduct: payload },
           {
             headers: { Authorization: token },

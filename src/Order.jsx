@@ -13,7 +13,7 @@ function Order() {
   const getOrderDetails = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:3000/loggedin/orderhistory",
+        "https://backend-1-qyp7.onrender.com/loggedin/orderhistory",
         {
           headers: { Authorization: token },
         }
@@ -111,7 +111,7 @@ function Order() {
                         );
                         try {
                           await axios.put(
-                            `http://localhost:3000/loggedin/order/${order._id}/status`,
+                            `https://backend-1-qyp7.onrender.com/loggedin/order/${order._id}/status`,
                             { status: newStatus },
                             { headers: { Authorization: token } }
                           );

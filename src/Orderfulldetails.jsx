@@ -15,7 +15,7 @@ function Orderfulldetails() {
   const getOrderDetails = async () => {
     try {
       const response = await axios
-        .get("http://localhost:3000/loggedin/orderhistory", {
+        .get("https://backend-1-qyp7.onrender.com/loggedin/orderhistory", {
           headers: { Authorization: token },
         })
         .then((res) => {

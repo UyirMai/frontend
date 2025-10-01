@@ -16,7 +16,7 @@ function Dashboard() {
   const fetchDashboardData = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:3000/loggedin/dashboard",
+        "https://backend-1-qyp7.onrender.com/loggedin/dashboard",
         {
           headers: {
             Authorization: token,
@@ -43,7 +43,7 @@ function Dashboard() {
     try {
       console.log("Removing product with ID:", id);
       const response = await axios.delete(
-        `http://localhost:3000/loggedin/dashboard/${id}`,
+        `https://backend-1-qyp7.onrender.com/loggedin/dashboard/${id}`,
         {
           headers: { Authorization: token },
         }
@@ -64,7 +64,7 @@ function Dashboard() {
     try {
       console.log("Edit product with ID:", id);
       axios
-        .get(`http://localhost:3000/loggedin/product/${id}`, {
+        .get(`https://backend-1-qyp7.onrender.com/loggedin/product/${id}`, {
           headers: {
             Authorization: token,
           },
@@ -122,7 +122,7 @@ function Dashboard() {
       console.log("Edited Product:", toedit);
       axios
         .put(
-          `http://localhost:3000/loggedin/product/${toedit._id}`,
+          `https://backend-1-qyp7.onrender.com/loggedin/product/${toedit._id}`,
           { editedProduct },
           {
             headers: {

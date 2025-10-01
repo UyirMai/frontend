@@ -27,7 +27,7 @@ const [foodVariant, setFoodVariant] = useState("");
   const getPurchaseDetails = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3000/loggedin/purchasehistory",
+          "https://backend-1-qyp7.onrender.com/loggedin/purchasehistory",
           { headers: { Authorization: token } }
         );
         if (response.data) {
@@ -85,7 +85,7 @@ console.log("New Purchase Object:", newPurchase);
      console.log(typeof(newPurchase.price)) 
     try {
       const response = await axios.post(
-        "http://localhost:3000/loggedin/purchase",
+        "https://backend-1-qyp7.onrender.com/loggedin/purchase",
         newPurchase,
         { headers: { Authorization: token } }
       );
