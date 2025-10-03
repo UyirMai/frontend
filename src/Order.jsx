@@ -21,7 +21,6 @@ function Order() {
 
       if (response.data && Array.isArray(response.data)) {
         setOrders(response.data);
-        console.log("Orders fetched successfully:", response.data);
       } else {
         console.error("Failed to fetch orders:", response.data.message);
       }
@@ -103,12 +102,6 @@ function Order() {
                       value={order.status || "Select"}
                       onChange={async (e) => {
                         const newStatus = e.target.value;
-                        console.log(
-                          "Updating status for order:",
-                          order._id,
-                          "to",
-                          newStatus
-                        );
                         try {
                           await axios.put(
                             `https://backend-1-qyp7.onrender.com/loggedin/order/${order._id}/status`,

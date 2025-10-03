@@ -43,6 +43,11 @@ function Layout() {
               </Link>
             </li>
             <li>
+              <Link to="inventory" className="sidebar-link" onClick={() => setIsOpen(false)}>
+                Add Inventory
+              </Link>
+            </li>
+            <li>
               <Link to="product" className="sidebar-link" onClick={() => setIsOpen(false)}>
                 Product
               </Link>

@@ -7,6 +7,7 @@ import Order from "./Order";
 import Product from "./Product";
 import Login from "./Login";
 import Orderfulldetails from "./Orderfulldetails";
+import InventoryForm from "./Inventory";
 
 
 
@@ -23,6 +24,7 @@ function App() {
         <Route path="order" element={<Order />} />
         <Route path="product" element={<Product />} />
         <Route path="Orderfulldetails" element={<Orderfulldetails />} />
+        <Route path="inventory" element={<InventoryForm/>}/>
       </Route>
     </Routes>
   );

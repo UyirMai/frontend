@@ -14,7 +14,7 @@ const [size, setSize] = useState("");
 const [color, setColor] = useState("");
 const [quantityType, setQuantityType] = useState("");
 const [foodVariant, setFoodVariant] = useState("");
-
+const [sku,setSku]=useState("");
 
 
  
@@ -32,7 +32,6 @@ const [foodVariant, setFoodVariant] = useState("");
         );
         if (response.data) {
           setPurchasehistory(response.data);
-          console.log("Purchase fetched successfully:", response.data);
         } else {
           console.error("Failed to fetch purchase:", response.data.message);
         }
@@ -70,19 +69,17 @@ const [foodVariant, setFoodVariant] = useState("");
 const newPurchase = {
   product,
   category,
+  sku,
   quantity,
   supplier,
   price,
   ...(category === "Wear" && { size, color }),
   ...(category === "Food" && { quantityType, foodVariant: `${foodVariant}` }),
 };
-console.log("New Purchase Object:", newPurchase);
 
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    console.log(typeof(newPurchase.quantity))  
-     console.log(typeof(newPurchase.price)) 
+    e.preventDefault(); 
     try {
       const response = await axios.post(
         "https://backend-1-qyp7.onrender.com/loggedin/purchase",
@@ -169,6 +166,17 @@ const handlePageChange = (page) => {
                 name="product"
                 value={product}
                 onChange={(e) => setProduct(e.target.value)}
+                required
+              />
+            </div>
+            <div className="mb-3">
+              <label className="form-label">sku</label>
+              <input
+                type="text"
+                className="form-control"
+                name="sku"
+                value={sku}
+                onChange={(e) => setSku(e.target.value)}
                 required
               />
             </div>

@@ -23,9 +23,7 @@ function Dashboard() {
           },
         }
       );
-      console.log("Response:", response);
       if (response.data) {
-        console.log("Dashboard data fetched successfully:", response.data);
         setDashboardData(response.data);
       } else {
         console.error("Failed to fetch dashboard data:", response.data.message);
@@ -41,7 +39,6 @@ function Dashboard() {
   }, []);
   const handleRemoving = async (id) => {
     try {
-      console.log("Removing product with ID:", id);
       const response = await axios.delete(
         `https://backend-1-qyp7.onrender.com/loggedin/dashboard/${id}`,
         {
@@ -51,7 +48,6 @@ function Dashboard() {
       if (response.data) {
         await fetchDashboardData();
         window.location.reload();
-        console.log("Product removed successfully:", response.data.message);
       } else {
         console.error("Failed to remove product:", response.data.message);
       }
@@ -62,7 +58,6 @@ function Dashboard() {
   //to handle edit product
   const handleEdit = async (id) => {
     try {
-      console.log("Edit product with ID:", id);
       axios
         .get(`https://backend-1-qyp7.onrender.com/loggedin/product/${id}`, {
           headers: {
@@ -73,7 +68,6 @@ function Dashboard() {
           setToedit(res.data);
         });
 
-      console.log(toedit);
       setShowModel(true);
     } catch (err) {
       console.log(err);
@@ -119,7 +113,6 @@ function Dashboard() {
     e.preventDefault();
     const editedProduct = toedit;
     try {
-      console.log("Edited Product:", toedit);
       axios
         .put(
           `https://backend-1-qyp7.onrender.com/loggedin/product/${toedit._id}`,
@@ -131,7 +124,6 @@ function Dashboard() {
           }
         )
         .then((res) => {
-          console.log(res.data);
         })
         .catch((err) => {
           console.log(err);
@@ -146,13 +138,11 @@ function Dashboard() {
 
   const handleSearch = (e) => {
     const value = e.target.value;
-    console.log(value);
     setSearchvalue(value);
     if (value) {
       const result = dashboardData.filter(
         (data) => data.product.toLowerCase().includes(value.toLowerCase()) //after giving order id need to search by orderid
       );
-      console.log(result);
       setSearchresult(result);
       setIssearch(true);
     } else {
@@ -295,6 +285,17 @@ function Dashboard() {
                       className="form-control"
                       name="product"
                       value={toedit.product}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+                   <div className="mb-3">
+                    <label className="form-label">sku</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      name="SKU"
+                      value={toedit.SKU}
                       onChange={handleChange}
                       required
                     />

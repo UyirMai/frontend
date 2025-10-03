@@ -20,8 +20,6 @@ function Orderfulldetails() {
         })
         .then((res) => {
           setOrdersdata(res.data);
-          console.log("Orders fetched successfully:", res.data);
-          console.log(ordersdata);
         });
     } catch (error) {
       console.error("Error fetching order details:", error);
@@ -38,13 +36,11 @@ function Orderfulldetails() {
 
   const handleSearch = (e) => {
     const value = e.target.value;
-    console.log(value);
-    setSearchvalue(value);
+        setSearchvalue(value);
     if (value) {
       const result = ordersdata.filter((order) =>
         order.userName.toLowerCase().includes(value.toLowerCase())//after giving order id need to search by orderid
       );
-      console.log(result);
       setSearchresult(result);
       setIssearch(true)
     } else {

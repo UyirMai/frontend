@@ -20,7 +20,6 @@ function Login() {
             navigate("/loggedin/dashboard");
             localStorage.setItem("user", JSON.stringify(response.data.user));
             localStorage.setItem("token", response.data.token);
-            console.log(response.data);
             setUseride("");
       setPassword("");
           }
@@ -29,7 +28,6 @@ function Login() {
           setFailedLogin(true);
           setUseride("");
       setPassword("");
-      console.log(failedLogin);
         })
     }catch (error) {
       console.error("Login failed:", error);
